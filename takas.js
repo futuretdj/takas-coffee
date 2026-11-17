@@ -192,7 +192,15 @@ function toast(t) { const el = $('[data-toast]'); el.textContent = t; el.classLi
     target = RM ? 1 : Math.max(0, Math.min(1, (vh * 0.7 - r.top) / Math.max(1, r.height * 0.72)));
     if (!raf) raf = requestAnimationFrame(loop);
   };
-  addEventListener('scroll', onScroll, { passive: true }); addEventListener('resize', onScroll); onScroll(); draw(shown);
+  if (document.documentElement.classList.contains('touch') && !RM) {
+    // phones: play the roast once when the chart comes into view (no work while scrolling)
+    draw(0);
+    let played = false;
+    const play = () => { if (played) return; played = true; const t0 = performance.now(), D = 4200;
+      const f = now => { const k = Math.min(1, (now - t0) / D); draw(k < .5 ? 2 * k * k * .9 + k * .1 : k); if (k < 1) requestAnimationFrame(f); }; requestAnimationFrame(f); };
+    const io2 = new IntersectionObserver(es => { if (es[0].isIntersecting) { play(); io2.disconnect(); } }, { threshold: .45 });
+    io2.observe(fig);
+  } else { addEventListener('scroll', onScroll, { passive: true }); addEventListener('resize', onScroll); onScroll(); draw(shown); }
 })();
 
 /* ---------- brew guide ---------- */
