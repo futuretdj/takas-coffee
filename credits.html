@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en" data-type="place" data-radius="soft" data-buttons="block" data-motion>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Takas Coffee Roasters: photograph credits</title>
+<meta name="description" content="The photographers, licences and source pages of the photographs on the Takas Coffee Roasters website.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Takas Coffee Roasters, Vilnius">
+<meta property="og:description" content="Roasted on Thursday, at your door by Tuesday. Single origins, a house espresso and a café in Paupys.">
+<meta property="og:image" content="https://futuretdj.github.io/takas-coffee/share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#f3eee4">
+<meta name="site-kind" content="other"><meta name="page-type" content="place"><meta name="page-kind" content="place">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Hanken+Grotesk:wght@400..600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/system.css">
+<link rel="stylesheet" href="assets/ui/cards.css">
+<link rel="stylesheet" href="assets/motion/motion.css">
+<link rel="stylesheet" href="assets/layout/layout.css">
+<style>
+:root {
+  --p-bg: #f3eee4; --p-surface: #e8e0d1; --p-ink: #221a14; --p-muted: #6a5d50;
+  --p-accent: #a3472b; --p-accent-ink: #ffffff; --p-action: #221a14; --p-action-ink: #f3eee4;
+  --p-inv-bg: #1d1712; --p-inv-surface: #2a221c; --p-inv-ink: #f3eee4; --p-inv-muted: #b2a697;
+  --p-inv-accent: #e49a6f; --p-inv-accent-ink: #1d1712; --p-inv-action: #f3eee4; --p-inv-action-ink: #1d1712;
+  --font-display: "Young Serif", Georgia, serif; --font-text: "Hanken Grotesk", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --display-weight: 400; --display-tracking: -0.02em;
+}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.mono,.t-label{font-family:var(--font-mono);letter-spacing:.04em}
+.logo-mark{width:26px;height:26px;margin-right:10px;flex:none}
+.nav__logo{display:inline-flex;align-items:center;font-family:var(--font-display);font-size:22px}
+.cart-btn{display:inline-flex;align-items:center;gap:8px;height:var(--btn-h);padding:0 14px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:transparent;color:var(--ink);font:500 var(--t-small)/1 var(--font-text);cursor:pointer;transition:border-color .2s,background .2s}
+.cart-btn:hover{border-color:var(--ink)}
+.cart-btn svg{width:18px;height:18px}
+.cart-btn b{min-width:20px;height:20px;padding:0 6px;border-radius:999px;background:var(--accent);color:#fff;font-size:12px;display:inline-grid;place-items:center;font-variant-numeric:tabular-nums}
+.cart-btn b.bump{animation:bump .5s cubic-bezier(.3,1.6,.5,1)}
+@keyframes bump{40%{transform:scale(1.45)}}
+.hero-notice strong{font-weight:600}
+.hero--place h1{max-width:13ch}
+
+/* shop */
+.ship-line{display:flex;align-items:center;gap:10px;font-size:var(--t-small);color:var(--muted)}
+.dot{width:8px;height:8px;border-radius:50%;background:#3d8a57;box-shadow:0 0 0 4px color-mix(in oklab,#3d8a57 20%,transparent);animation:pulse 2.4s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 8px color-mix(in oklab,#3d8a57 0%,transparent)}}
+.shop{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gutter,24px)}
+.prod{display:flex;flex-direction:column;gap:14px;min-width:0}
+.prod__pic{position:relative;aspect-ratio:4/5;border-radius:var(--r-lg);overflow:hidden;background:var(--surface);margin:0}
+.prod__pic img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1),filter .6s}
+.prod:hover .prod__pic img{transform:scale(1.045)}
+.prod__tag{position:absolute;left:12px;top:12px;padding:5px 9px;border-radius:999px;background:var(--bg);font:500 11px/1 var(--font-mono);letter-spacing:.06em;text-transform:uppercase}
+.prod__roast{position:absolute;right:12px;top:12px;display:flex;gap:3px;padding:6px 8px;border-radius:999px;background:color-mix(in oklab,var(--bg) 88%,transparent)}
+.prod__roast i{width:7px;height:7px;border-radius:50%;background:color-mix(in oklab,var(--ink) 18%,transparent)}
+.prod__roast i.on{background:#6b3a1f}
+.prod__notes-over{position:absolute;inset:auto 0 0 0;padding:40px 16px 14px;background:linear-gradient(transparent,rgba(20,14,10,.78));color:#f3eee4;font-size:14px;line-height:1.35;transform:translateY(100%);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.prod:hover .prod__notes-over{transform:none}
+.prod__head{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.prod__head h3{font:400 22px/1.15 var(--font-display);letter-spacing:-.01em}
+.prod__price{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+.prod__origin{font:400 12px/1.4 var(--font-mono);color:var(--muted);letter-spacing:.02em;margin-top:-8px}
+.prod__notes{display:flex;flex-wrap:wrap;gap:6px}
+.prod__notes span{font-size:13px;padding:4px 10px;border-radius:999px;border:1px solid var(--line-strong)}
+.taste{display:grid;gap:6px;font-size:12px;color:var(--muted)}
+.taste div{display:grid;grid-template-columns:72px 1fr;align-items:center;gap:10px}
+.taste u{display:block;height:4px;border-radius:4px;background:color-mix(in oklab,var(--ink) 10%,transparent);text-decoration:none;overflow:hidden}
+.taste u::after{content:"";display:block;height:100%;width:calc(var(--v)*10%);background:var(--accent);border-radius:4px;transform-origin:left;transform:scaleX(0);transition:transform 1.1s cubic-bezier(.2,.7,.2,1) calc(var(--d,0)*90ms)}
+.taste.in u::after,.no-io .taste u::after{transform:none}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:4px;padding:3px;border-radius:var(--r-sm);background:var(--surface)}
+.opt button{flex:1;min-height:34px;border:0;border-radius:calc(var(--r-sm) - 2px);background:transparent;color:var(--muted);font:500 13px/1.1 var(--font-text);cursor:pointer;transition:background .25s,color .25s,box-shadow .25s;padding:4px 6px}
+.opt button[aria-pressed="true"]{background:var(--bg);color:var(--ink);box-shadow:0 1px 3px rgba(34,26,20,.14)}
+.add{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;min-height:48px;padding:0 18px;border:0;border-radius:var(--r-sm);background:var(--ink);color:var(--bg);font:600 15px/1 var(--font-text);cursor:pointer;position:relative;overflow:hidden;transition:transform .15s}
+.add:active{transform:scale(.98)}
+.add::before{content:"";position:absolute;inset:0;background:var(--accent);transform:translateY(101%);transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.add:hover::before{transform:none}
+.add>*{position:relative}
+.add.done::before{transform:none;background:#3d6e4c}
+.gift{margin-top:calc(var(--s-8,64px));display:grid;grid-template-columns:5fr 7fr;gap:0;border-radius:var(--r-lg);overflow:hidden;background:var(--surface)}
+.gift__pic{margin:0;min-height:100%}
+.gift__pic img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+.gift__text{padding:clamp(24px,4vw,56px);display:grid;gap:16px;align-content:center}
+.gift__text h3{font:400 clamp(28px,3vw,40px)/1.1 var(--font-display)}
+.gift__row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.gift__row .add{width:auto;margin:0}
+
+/* roast curve */
+.ground-inverse .t-label{color:var(--muted)}
+.roast__grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(24px,5vw,80px);align-items:start}
+.roast__text{display:grid;gap:20px}
+.roast__text h2{font-size:clamp(40px,4.6vw,64px);line-height:1.02}
+.phases{list-style:none;margin:8px 0 0;padding:0;display:grid}
+.phases li{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:14px 0;border-top:1px solid var(--line);opacity:.38;transition:opacity .5s}
+.phases li.on{opacity:1}
+.phases li b{font-weight:600;color:var(--accent)}
+.phases li span{font-size:15px;line-height:1.5}
+.curve{position:sticky;top:calc(var(--nav-h,72px) + 24px);margin:0;padding:22px;border-radius:var(--r-lg);background:var(--surface);border:1px solid var(--line)}
+.curve svg{display:block;width:100%;height:auto;overflow:visible}
+.curve__read{display:flex;align-items:baseline;gap:14px;font-family:var(--font-mono);font-size:12px;color:var(--muted);margin-bottom:6px}
+.curve__read b{font:500 clamp(28px,3.4vw,44px)/1 var(--font-mono);color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+.curve__read span:last-child{margin-left:auto;font-size:16px;color:var(--ink)}
+.curve__grid line{stroke:var(--line);stroke-width:1}
+.curve__grid text{fill:var(--muted);font:10px var(--font-mono)}
+.curve__bt{fill:none;stroke:#f0a46e;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.curve__bt-glow{fill:none;stroke:#e8743b;stroke-width:12;opacity:.28;filter:blur(6px);stroke-linecap:round}
+.curve__ror{fill:none;stroke:#8fb7a0;stroke-width:1.6;stroke-dasharray:4 5;opacity:.85}
+.curve__head{fill:#fff3e6;stroke:#e8743b;stroke-width:3;filter:drop-shadow(0 0 10px #e8743b)}
+.curve__marks .mk{opacity:0;transition:opacity .5s, transform .5s;transform:translateY(6px)}
+.curve__marks .mk.on{opacity:1;transform:none}
+.curve__marks line{stroke:var(--ink);stroke-opacity:.35;stroke-dasharray:2 4}
+.curve__marks text{fill:var(--ink);font:500 11px var(--font-mono)}
+.curve__marks circle{fill:var(--accent)}
+.curve figcaption{display:flex;gap:20px;flex-wrap:wrap;margin-top:12px;font-size:12px;color:var(--muted)}
+.sw{display:inline-block;width:18px;height:3px;border-radius:2px;margin-right:8px;vertical-align:middle;background:#f0a46e}
+.sw--ror{background:repeating-linear-gradient(90deg,#8fb7a0 0 4px,transparent 4px 8px)}
+
+/* journey chapters: page tone */
+.mo-ph__ch h3{font-family:var(--font-display);font-weight:400}
+
+/* subscription */
+.sub{display:grid;grid-template-columns:5fr 7fr;gap:clamp(24px,5vw,80px);align-items:start}
+.sub__text{display:grid;gap:20px}
+.ticks{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.ticks li{display:flex;gap:12px;align-items:center}
+.ticks li::before{content:"";width:18px;height:18px;flex:none;border-radius:50%;background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M5 9.5l2.6 2.5L13 6.5' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/18px no-repeat}
+.sub__form{display:grid;gap:22px;padding:clamp(20px,3vw,40px);border-radius:var(--r-lg);background:var(--bg)}
+fieldset{border:0;padding:0;margin:0;display:grid;gap:10px;min-width:0}
+legend{font:500 12px/1 var(--font-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:0;margin-bottom:10px}
+.seg{display:grid;gap:8px}
+.seg--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.seg label{position:relative;cursor:pointer}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg span{display:grid;gap:3px;height:100%;padding:14px;border:1px solid var(--line-strong);border-radius:var(--r-sm);transition:border-color .2s,background .2s,box-shadow .2s}
+.seg b{font-weight:600;font-size:15px}
+.seg small{font-size:13px;color:var(--muted)}
+.seg input:checked+span{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink);background:color-mix(in oklab,var(--accent) 6%,var(--bg))}
+.seg input:focus-visible+span{outline:2px solid var(--accent);outline-offset:2px}
+.sub__sum{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--line)}
+.sub__price{font:400 40px/1.1 var(--font-display);font-variant-numeric:tabular-nums}
+.sub__price s{font-size:20px;color:var(--muted)}
+.sub__price b{font-weight:400;display:inline-block}
+.sub__price b.tick{animation:tick .4s}
+@keyframes tick{0%{transform:translateY(-30%);opacity:0}100%{transform:none;opacity:1}}
+
+/* brew */
+.brew{display:grid;gap:24px}
+.brew__pick{display:flex;flex-wrap:wrap;gap:8px}
+.brew__pick button{height:44px;padding:0 18px;border:1px solid var(--line-strong);border-radius:999px;background:transparent;color:var(--ink);font:500 15px/1 var(--font-text);cursor:pointer;transition:all .25s}
+.brew__pick button[aria-checked="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.brew__body{display:grid;grid-template-columns:7fr 5fr;gap:24px}
+.brew__recipe,.brew__timer{border-radius:var(--r-lg);background:var(--surface);padding:clamp(20px,3vw,40px);display:grid;gap:28px;align-content:start}
+.brew__cups{display:flex;align-items:center;gap:14px;font-weight:500}
+.brew__cups button{width:40px;height:40px;border-radius:50%;border:1px solid var(--line-strong);background:var(--bg);font-size:20px;cursor:pointer;color:var(--ink)}
+.brew__cups b{font:400 32px/1 var(--font-display);min-width:1.4ch;text-align:center}
+.brew__nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:0}
+.brew__nums div{display:grid;gap:6px}
+.brew__nums dt{font:500 11px/1 var(--font-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.brew__nums dd{margin:0;font:400 clamp(26px,2.8vw,40px)/1 var(--font-display);font-variant-numeric:tabular-nums;white-space:nowrap}
+.grind__bar{height:10px;border-radius:10px;background:linear-gradient(90deg,#d9cdb9,#8a6a4c 50%,#3a271a);position:relative}
+.grind__bar i{position:absolute;top:50%;width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50%;background:var(--bg);border:3px solid var(--ink);left:50%;transition:left .7s cubic-bezier(.3,1.3,.5,1)}
+.grind__ends{display:flex;justify-content:space-between;gap:10px;margin-top:12px;font-size:12px;color:var(--muted)}
+.grind__ends span:nth-child(2){color:var(--ink);font-weight:600;text-align:center}
+.brew__tip{font-size:15px;line-height:1.55;padding-left:16px;border-left:2px solid var(--accent)}
+.brew__timer{justify-items:center}
+.dial{position:relative;width:min(220px,60vw);aspect-ratio:1}
+.dial svg{width:100%;height:100%;transform:rotate(-90deg)}
+.dial__bg{fill:none;stroke:color-mix(in oklab,var(--ink) 10%,transparent);stroke-width:8}
+.dial__fg{fill:none;stroke:var(--accent);stroke-width:8;stroke-linecap:round;stroke-dasharray:553;stroke-dashoffset:553;transition:stroke-dashoffset .25s linear}
+.dial__in{position:absolute;inset:0;display:grid;place-content:center;text-align:center;gap:4px}
+.dial__in b{font:400 44px/1 var(--font-mono);font-variant-numeric:tabular-nums;letter-spacing:-.04em}
+.dial__in span{font-size:13px;color:var(--muted);max-width:14ch}
+.steps{list-style:none;margin:0;padding:0;width:100%;display:grid}
+.steps li{display:grid;grid-template-columns:52px 1fr;gap:10px;padding:9px 0;border-top:1px solid var(--line);font-size:14px;transition:color .3s,opacity .3s;opacity:.6}
+.steps li b{font:500 12px/1.6 var(--font-mono);color:var(--muted)}
+.steps li.now{opacity:1;font-weight:600}
+.steps li.now b{color:var(--accent)}
+.steps li.past{opacity:.35;text-decoration:line-through}
+
+/* café & visit */
+.menu-h{font:500 12px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:32px 0 14px}
+.rows .rows__name small{display:block;font-weight:400;color:var(--muted);font-size:var(--t-small)}
+.photo-frame{margin:0;aspect-ratio:4/5;border-radius:var(--r-lg);overflow:hidden}
+.photo-frame img{width:100%;height:100%;object-fit:cover}
+.addr-big{display:block;font:400 clamp(44px,5.4vw,80px)/1 var(--font-display);letter-spacing:-.02em;color:var(--ink);text-decoration:none;background:linear-gradient(var(--accent),var(--accent)) 0 100%/0 2px no-repeat;transition:background-size .6s cubic-bezier(.2,.7,.2,1);width:fit-content;padding-bottom:4px}
+.addr-big:hover{background-size:100% 2px}
+.ws-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:8px 0 0}
+.ws-facts div{border-top:1px solid var(--line-strong);padding-top:12px}
+.ws-facts dt{font-size:13px;color:var(--muted)}
+.ws-facts dd{margin:4px 0 0;font:400 24px/1.1 var(--font-display)}
+.ws-form{background:var(--surface);border-radius:var(--r-lg);padding:clamp(20px,3.4vw,48px)}
+.faq-side{margin-top:16px}
+.news{display:flex;flex-wrap:wrap;gap:8px}
+.news input{flex:1 1 160px;height:var(--btn-h);padding:0 12px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--bg);color:var(--ink);font:inherit}
+.news p{flex-basis:100%}
+
+/* drawer */
+.drawer{position:fixed;inset:0;z-index:200}
+.drawer[hidden]{display:block;visibility:hidden;pointer-events:none}
+.drawer__scrim{position:absolute;inset:0;background:rgba(20,14,10,.45);opacity:0;transition:opacity .4s}
+.drawer__panel{position:absolute;top:0;right:0;bottom:0;width:min(440px,100vw);background:var(--bg);color:var(--ink);display:grid;grid-template-rows:auto auto 1fr auto;transform:translateX(100%);transition:transform .55s cubic-bezier(.2,.75,.15,1);box-shadow:-30px 0 60px rgba(20,14,10,.18)}
+.drawer.open{visibility:visible;pointer-events:auto}
+.drawer.open .drawer__scrim{opacity:1}
+.drawer.open .drawer__panel{transform:none}
+.drawer__head{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:1px solid var(--line)}
+.drawer__head h2{font-size:28px}
+.x{width:40px;height:40px;border-radius:50%;border:1px solid var(--line-strong);background:transparent;font-size:24px;line-height:1;cursor:pointer;color:var(--ink)}
+.ship-meter{padding:16px 24px;font-size:14px;display:grid;gap:10px}
+.ship-meter__bar{height:6px;border-radius:6px;background:var(--surface);overflow:hidden}
+.ship-meter__bar i{display:block;height:100%;width:0;background:var(--accent);border-radius:6px;transition:width .6s cubic-bezier(.2,.7,.2,1)}
+.bag{list-style:none;margin:0;padding:0 24px;overflow:auto;overscroll-behavior:contain}
+.bag li{display:grid;grid-template-columns:72px 1fr auto;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);align-items:center;animation:in .4s cubic-bezier(.2,.7,.2,1)}
+@keyframes in{from{opacity:0;transform:translateX(20px)}}
+.bag img{width:72px;height:88px;object-fit:cover;border-radius:var(--r-sm)}
+.bag h4{font:400 18px/1.2 var(--font-display)}
+.bag small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.qty{display:inline-flex;align-items:center;gap:10px;margin-top:8px;border:1px solid var(--line-strong);border-radius:999px;padding:2px}
+.qty button{width:28px;height:28px;border:0;border-radius:50%;background:transparent;cursor:pointer;color:var(--ink);font-size:16px}
+.qty span{min-width:1ch;text-align:center;font-variant-numeric:tabular-nums}
+.bag .lp{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.bag .rm{display:block;margin-top:8px;border:0;background:none;color:var(--muted);font-size:12px;text-decoration:underline;cursor:pointer;padding:0}
+.bag .empty{display:block;border:0;padding:48px 0;text-align:center;color:var(--muted)}
+.drawer__foot{padding:20px 24px calc(20px + env(safe-area-inset-bottom));border-top:1px solid var(--line);display:grid;gap:10px}
+.tot{display:flex;justify-content:space-between;font-size:18px}
+.tot b{font-variant-numeric:tabular-nums}
+.tot--s{font-size:14px;color:var(--muted)}
+.btn--wide{width:100%;justify-content:center}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));z-index:220;transform:translate(-50%,140%);padding:14px 20px;border-radius:999px;background:var(--ink);color:var(--bg);font-size:15px;font-weight:500;transition:transform .5s cubic-bezier(.3,1.4,.5,1);pointer-events:none;white-space:nowrap;max-width:calc(100vw - 32px);overflow:hidden;text-overflow:ellipsis}
+.toast.on{transform:translate(-50%,0)}
+.fly{position:fixed;z-index:230;width:46px;height:46px;border-radius:50%;object-fit:cover;pointer-events:none;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+body.lock{overflow:hidden}
+
+@media (max-width:1100px){.shop{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:1023px){
+  .roast__grid,.sub,.brew__body,.gift{grid-template-columns:1fr}
+  .curve{position:relative;top:0;order:-1}
+  .roast__grid .curve{position:sticky;top:calc(var(--nav-h,64px) + 8px);z-index:2}
+  .brew__nums{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:639px){
+  .shop{grid-template-columns:1fr;gap:48px}
+  .prod__pic{aspect-ratio:5/4}
+  .prod__notes-over{display:none}
+  .seg--3{grid-template-columns:1fr}
+  .seg span{grid-template-columns:auto 1fr;align-items:baseline;gap:10px;padding:12px 14px}
+  .phases li{grid-template-columns:1fr;gap:4px}
+  .curve{padding:14px}
+  .curve__read b{font-size:26px}
+  .ws-facts{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .ws-facts dd{font-size:18px}
+  .cart-btn span{display:none}
+  .nav__actions .btn{display:none}
+  .addr-big{font-size:clamp(40px,12vw,56px)}
+  .sub__price{font-size:34px}
+}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+
+</style>
+<script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
+<script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav__bar">
+    <a class="skip-link" href="#top">Skip to content</a>
+    <a class="nav__logo" href="#top"><svg class="logo-mark" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="12.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 19c3-1.2 4.4-3.6 5-6.2.6-2.6 2.6-4.4 7-4.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="20" cy="8" r="1.6" fill="var(--accent)"/></svg>Takas</a>
+    <nav class="nav__links" aria-label="Main">
+      <div class="nav__item"><a class="nav__link" href="#coffee">Coffee</a></div>
+      <div class="nav__item"><a class="nav__link" href="#subscribe">Subscription</a></div>
+      <div class="nav__item"><a class="nav__link" href="#roast">How we roast</a></div>
+      <div class="nav__item"><a class="nav__link" href="#brew">Brew guide</a></div>
+      <div class="nav__item"><a class="nav__link" href="#cafe">Café</a></div>
+    </nav>
+    <div class="nav__actions">
+      <button class="cart-btn" type="button" data-cart-open aria-label="Open the bag"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 6.5h12l-1 10H5l-1-10Z M7 6.5V5a3 3 0 0 1 6 0v1.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg><span>Bag</span><b data-cart-count>0</b></button>
+      <a class="btn btn--primary" href="#coffee">Shop coffee</a>
+    </div>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+  </div>
+</header>
+
+<main id="top">
+  <p><a class="link" href="index.html">Takas Coffee Roasters</a></p>
+  <section class="credits-list" id="credits" aria-labelledby="credits-h">
+    <h1 id="credits-h">Photograph credits</h1>
+    <ul>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Closer_look_at_the_coffee_beans_from_the_coffee_roasting_machine_looking_at_their_progress.jpg">Jameswasswa</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Latte_in_a_coffee_machine_(Unsplash).jpg">Blake Richard Verdoorn</a>, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a></li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Drip_brewing_(Unsplash).jpg">Thomas Martinsen</a>, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a></li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Serving_coffee_in_a_cafe_during_the_morning_hours_with_a_waiter_carrying_a_tray_of_drinks_for_customers.jpg">Shixart1985</a>, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Final_part_of_the_roasted_beans_out_for_cooling.jpg">Jameswasswa</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Joshua_Newton_2016-10-01_(Unsplash_XpyD7z6AP4g).jpg">Joshua Newton</a>, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a></li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Closer_look_at_the_progress_of_the_coffee_beans_in_the_roasting_machine_as_they_change_color.jpg">Jameswasswa</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Coffee_beans_roasted.jpg">Sridhar Rao</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a></li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Roasted_arabica_coffee_beans_Minca.jpg">Roger Burger</a>, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en">CC0</a></li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:15_grams_of_coffee_roasted_to_different_degrees.jpg">Alorin</a>, <a href="https://creativecommons.org/licenses/by/4.0">CC BY 4.0</a></li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Dark_roasted_espresso_blend_coffee_beans_2.jpg">Ragesoss</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a></li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Coffee_bean_roasted_PhilippinesB.jpg">Unknown author</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer class="footer closing footer--visit" id="contact" aria-labelledby="close-h">
+  <div class="wrap">
+    <div class="closing__cta close--type">
+      <div class="section-head"><h2 id="close-h">Next roast on <span data-next-roast>Thursday</span></h2><p class="t-lead">Order before noon on the day and it ships the next morning.</p></div>
+      <a class="btn btn--primary btn--xl" href="#coffee">Shop coffee</a>
+    </div>
+    <div class="closing__links">
+      <div class="grid">
+        <div class="span-4 stack-4"><address class="footer__address">Paupio g. 28, Vilnius</address><p><a class="link" href="mailto:hello@takas.example">hello@takas.example</a></p></div>
+        <div class="span-4 stack-4"><h4>Shop</h4><p><a class="link" href="#coffee">Coffee</a> · <a class="link" href="#subscribe">Subscription</a> · <a class="link" href="#wholesale">Wholesale</a></p></div>
+        <div class="span-4 stack-4"><h4>Newsletter</h4><form class="news" onsubmit="this.querySelector('p').textContent='Thank you. The next letter comes on Thursday.';this.reset();return false"><label class="sr" for="n-mail">Email</label><input id="n-mail" type="email" required placeholder="you@example.com" autocomplete="email"><button class="btn btn--secondary" type="submit">Subscribe</button><p class="t-small muted" role="status">One short letter on roast days. No spam.</p></form></div>
+      </div>
+      <div class="footer__legal">
+        <span>&copy; 2026 Takas Coffee Roasters · a concept site</span>
+        <details class="credits"><summary>Photographs: CREDITS</summary><p>CREDITS_LONG</p></details>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- the bag -->
+<div class="drawer" data-drawer hidden>
+  <div class="drawer__scrim" data-cart-close></div>
+  <aside class="drawer__panel" role="dialog" aria-modal="true" aria-labelledby="bag-h">
+    <div class="drawer__head"><h2 id="bag-h">Your bag</h2><button type="button" class="x" data-cart-close aria-label="Close the bag">×</button></div>
+    <div class="ship-meter"><p data-ship-text>Add €40.00 for free delivery in Lithuania</p><div class="ship-meter__bar"><i data-ship-bar></i></div></div>
+    <ul class="bag" data-bag></ul>
+    <div class="drawer__foot">
+      <div class="tot"><span>Subtotal</span><b data-subtotal>€0.00</b></div>
+      <div class="tot tot--s"><span>Delivery in Lithuania</span><span data-shipping>€3.90</span></div>
+      <button class="btn btn--primary btn--wide" type="button" data-checkout>Checkout</button>
+      <p class="t-small muted" data-checkout-note>Card, Apple Pay, Google Pay and bank link. Secure checkout.</p>
+    </div>
+  </aside>
+</div>
+<div class="toast" data-toast role="status" aria-live="polite"></div>
+
+<nav class="actionbar" aria-label="Quick actions">
+  <a class="btn btn--secondary" href="https://www.openstreetmap.org/search?query=Paupio%20g.%2028%20Vilnius">Directions</a>
+  <a class="btn btn--primary" href="#coffee">Shop coffee</a>
+</nav>
+<script type="module" src="assets/system.js"></script>
+<script type="module" src="assets/motion/motion.js"></script>
+<script type="module" src="assets/layout/layout.js"></script>
+<script type="module" src="takas.js"></script>
+</body>
+</html>
