@@ -263,3 +263,66 @@ function toast(t) { const el = $('[data-toast]'); el.textContent = t; el.classLi
     }, 30);
   }, true);
 })();
+
+/* ---------- swipe gallery + lightbox ---------- */
+(() => {
+  const track = $('[data-gal-track]'); if (!track) return;
+  const items = $$('.gal__item', track), bar = $('[data-gal-bar]'), cnt = $('[data-gal-count]');
+  const prev = $('[data-gal-prev]'), next = $('[data-gal-next]'), N = items.length;
+  const pad = n => String(n).padStart(2, '0');
+  const cur = () => { const x = track.scrollLeft + 2; let i = 0; items.forEach((it, k) => { if (it.offsetLeft - items[0].offsetLeft <= x) i = k; }); return track.scrollLeft + track.clientWidth >= track.scrollWidth - 4 ? N - 1 : i; };
+  const upd = () => {
+    const max = track.scrollWidth - track.clientWidth, p = max > 0 ? track.scrollLeft / max : 0;
+    const w = Math.max(.12, track.clientWidth / track.scrollWidth);
+    bar.style.width = (w * 100) + '%'; bar.style.transform = `translateX(${p * (1 / w - 1) * 100}%)`;
+    const i = cur(); cnt.textContent = pad(i + 1) + ' / ' + pad(N);
+    prev.disabled = track.scrollLeft < 4; next.disabled = track.scrollLeft > max - 4;
+  };
+  const go = d => { const i = Math.max(0, Math.min(N - 1, cur() + d)); track.scrollTo({ left: items[i].offsetLeft - items[0].offsetLeft, behavior: RM ? 'auto' : 'smooth' }); };
+  prev.addEventListener('click', () => go(-1)); next.addEventListener('click', () => go(1));
+  track.addEventListener('scroll', () => requestAnimationFrame(upd), { passive: true }); addEventListener('resize', upd); upd();
+  // mouse drag with inertia (touch uses the native swipe)
+  let down = false, sx = 0, sl = 0, moved = 0, v = 0, lx = 0, lt = 0;
+  track.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; down = true; moved = 0; sx = lx = e.clientX; sl = track.scrollLeft; lt = performance.now(); v = 0; });
+  addEventListener('pointermove', e => { if (!down) return; const dx = e.clientX - sx; if (Math.abs(dx) > 4 && !track.classList.contains('drag')) track.classList.add('drag'); moved = Math.abs(dx); track.scrollLeft = sl - dx; const t = performance.now(); v = (e.clientX - lx) / Math.max(1, t - lt); lx = e.clientX; lt = t; });
+  addEventListener('pointerup', () => {
+    if (!down) return; down = false;
+    if (!track.classList.contains('drag')) return;
+    let vel = -v * 16; const glide = () => { track.scrollLeft += vel; vel *= .92; if (Math.abs(vel) > .5) requestAnimationFrame(glide); else { track.classList.remove('drag'); go(0); } };
+    RM ? (track.classList.remove('drag'), go(0)) : glide();
+  });
+  track.addEventListener('click', e => { if (moved > 6) { e.preventDefault(); e.stopPropagation(); moved = 0; } }, true);
+  track.addEventListener('keydown', e => { if (e.key === 'ArrowRight') go(1); if (e.key === 'ArrowLeft') go(-1); });
+
+  // lightbox
+  const lb = $('[data-lb]'), lt2 = $('[data-lb-track]'), cap = $('[data-lb-cap]'), lc = $('[data-lb-count]');
+  const data = items.map(it => { const im = $('img', it); return { src: im.currentSrc || im.src, srcset: im.getAttribute('srcset'), alt: im.alt }; });
+  lt2.innerHTML = data.map(d => `<li><img srcset="${d.srcset}" sizes="100vw" src="${d.src}" alt="${d.alt}" draggable="false"></li>`).join('');
+  const slides = $$('li', lt2);
+  let li = 0, opener;
+  const lbUpd = () => { const i = Math.round(lt2.scrollLeft / Math.max(1, lt2.clientWidth)); if (i !== li || !slides[i].classList.contains('on')) { li = i; slides.forEach((s, k) => s.classList.toggle('on', k === i)); cap.textContent = data[i].alt; lc.textContent = (i + 1) + ' / ' + N; } };
+  lt2.addEventListener('scroll', () => requestAnimationFrame(lbUpd), { passive: true });
+  const open = i => { opener = document.activeElement; lb.hidden = false; document.body.classList.add('lock'); requestAnimationFrame(() => { lb.classList.add('open'); lt2.scrollLeft = i * lt2.clientWidth; li = -1; lbUpd(); $('[data-lb-close]').focus(); }); };
+  const close = () => { lb.classList.remove('open'); document.body.classList.remove('lock'); setTimeout(() => lb.hidden = true, 350); opener?.focus?.(); };
+  const step = d => lt2.scrollTo({ left: Math.max(0, Math.min(N - 1, li + d)) * lt2.clientWidth, behavior: RM ? 'auto' : 'smooth' });
+  $$('[data-gal-open]').forEach(b => b.addEventListener('click', () => open(+b.dataset.galOpen)));
+  $('[data-lb-close]').addEventListener('click', close);
+  $('[data-lb-prev]').addEventListener('click', () => step(-1)); $('[data-lb-next]').addEventListener('click', () => step(1));
+  addEventListener('keydown', e => { if (!lb.classList.contains('open')) return; if (e.key === 'Escape') close(); if (e.key === 'ArrowRight') step(1); if (e.key === 'ArrowLeft') step(-1); });
+  // swipe down to close on touch
+  let ty0 = null; lt2.addEventListener('touchstart', e => { ty0 = e.touches[0].clientY; }, { passive: true });
+  lt2.addEventListener('touchend', e => { if (ty0 !== null && e.changedTouches[0].clientY - ty0 > 110) close(); ty0 = null; }, { passive: true });
+  addEventListener('resize', () => { if (lb.classList.contains('open')) lt2.scrollLeft = li * lt2.clientWidth; });
+})();
+
+/* ---------- shop: swipe dots on phones ---------- */
+(() => {
+  const shop = $('[data-shop]'); if (!shop) return;
+  const cards = $$('.prod', shop); const dots = document.createElement('div'); dots.className = 'shop-dots';
+  dots.innerHTML = cards.map((c, i) => `<button type="button" aria-label="Coffee ${i + 1} of ${cards.length}"></button>`).join('');
+  shop.after(dots);
+  const bs = $$('button', dots);
+  const upd = () => { const i = Math.round(shop.scrollLeft / Math.max(1, cards[0].offsetWidth + 14)); bs.forEach((b, k) => b.setAttribute('aria-current', k === Math.min(i, cards.length - 1))); };
+  bs.forEach((b, i) => b.addEventListener('click', () => shop.scrollTo({ left: cards[i].offsetLeft - cards[0].offsetLeft, behavior: 'smooth' })));
+  shop.addEventListener('scroll', () => requestAnimationFrame(upd), { passive: true }); upd();
+})();

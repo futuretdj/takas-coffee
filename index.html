@@ -275,6 +275,67 @@ footer.closing .closing__links { margin-top: clamp(64px, 8vw, 120px); }
 
 .toast{top:calc(var(--nav-h,64px) + 12px);bottom:auto;transform:translate(-50%,-30px) scale(.96);opacity:0;transition:transform .45s cubic-bezier(.3,1.4,.5,1),opacity .3s}
 .toast.on{transform:translate(-50%,0)!important;opacity:1}
+
+/* swipe gallery */
+#inside{padding-bottom:clamp(64px,8vw,120px)!important}
+.gal{position:relative}
+.gal__track{list-style:none;margin:0;display:flex;gap:16px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:0 max(var(--gut,24px),(100% - var(--container,1200px))/2);scroll-padding-inline:max(var(--gut,24px),(100% - var(--container,1200px))/2);cursor:grab;touch-action:pan-x pan-y}
+.gal__track::-webkit-scrollbar{display:none}
+.gal__track.drag{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto}
+.gal__track.drag .gal__btn{pointer-events:none}
+.gal__item{flex:none;scroll-snap-align:start;display:grid;gap:12px;width:min(640px,72vw)}
+.gal__item--p{width:min(380px,44vw)}
+.gal__btn{display:block;padding:0;border:0;background:var(--surface);border-radius:var(--r-lg);overflow:hidden;height:clamp(360px,42vw,560px);cursor:zoom-in}
+.gal__btn img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s cubic-bezier(.2,.7,.2,1);-webkit-user-drag:none;user-select:none}
+@media (hover:hover){.gal__btn:hover img{transform:scale(1.04)}}
+.gal__cap{display:flex;gap:12px;font-size:14px;color:var(--muted)}
+.gal__cap span{font-family:var(--font-mono);color:var(--accent)}
+.gal__nav{display:flex;align-items:center;gap:8px}
+.gal__count{font:500 13px/1 var(--font-mono);margin-right:8px;font-variant-numeric:tabular-nums}
+.gal__arrow{width:48px;height:48px;border-radius:50%;border:1px solid var(--line-strong);background:transparent;color:var(--ink);font-size:18px;cursor:pointer;transition:background .25s,color .25s,opacity .25s}
+.gal__arrow:hover:not(:disabled){background:var(--ink);color:var(--bg)}
+.gal__arrow:disabled{opacity:.3;cursor:default}
+.gal__bar{height:2px;background:var(--line);margin-top:24px;border-radius:2px;overflow:hidden}
+.gal__bar i{display:block;height:100%;width:20%;background:var(--ink);border-radius:2px;transform-origin:left;will-change:transform}
+@media (max-width:639px){
+  .gal__item{width:82vw}.gal__item--p{width:60vw}
+  .gal__btn{height:min(64vh,470px)}
+  .gal__arrow{display:none}
+  .gal__track{gap:10px}
+}
+/* shop on phones: swipe sideways */
+.shop-dots{display:none}
+@media (max-width:639px){
+  .shop{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;margin-inline:calc(-1 * var(--gut,24px));padding-inline:var(--gut,24px);scroll-padding-inline:var(--gut,24px);touch-action:pan-x pan-y}
+  .shop::-webkit-scrollbar{display:none}
+  .shop>.prod{flex:none;width:84vw;scroll-snap-align:start}
+  .prod__pic{aspect-ratio:4/3.6}
+  .shop-dots{display:flex;justify-content:center;gap:8px;margin-top:20px}
+  .shop-dots button{width:8px;height:8px;padding:0;border:0;border-radius:8px;background:color-mix(in oklab,var(--ink) 22%,transparent);transition:width .35s cubic-bezier(.2,.7,.2,1),background .35s}
+  .shop-dots button[aria-current="true"]{width:28px;background:var(--ink)}
+  .shop-hint{display:block!important}
+}
+.shop-hint{display:none;font-size:13px;color:var(--muted);margin:-8px 0 16px}
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:300;background:#0f0b08;color:#f3eee4;display:grid;grid-template-rows:auto 1fr auto;opacity:0;transition:opacity .35s}
+.lb[hidden]{display:grid;visibility:hidden;pointer-events:none}
+.lb.open{opacity:1;visibility:visible;pointer-events:auto}
+.lb__top{display:flex;justify-content:space-between;align-items:center;padding:calc(12px + env(safe-area-inset-top)) 16px 12px;font:500 13px/1 var(--font-mono)}
+.lb__x{width:44px;height:44px;border-radius:50%;border:1px solid rgba(243,238,228,.3);background:transparent;color:inherit;font-size:26px;cursor:pointer}
+.lb__track{list-style:none;margin:0;padding:0;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior:contain;min-height:0}
+.lb__track::-webkit-scrollbar{display:none}
+.lb__track li{flex:none;width:100%;height:100%;scroll-snap-align:center;scroll-snap-stop:always;display:grid;place-items:center;padding:0 12px}
+.lb__track img{max-width:100%;max-height:100%;object-fit:contain;border-radius:6px;user-select:none;-webkit-user-drag:none;transform:scale(.94);opacity:.4;transition:transform .5s cubic-bezier(.2,.7,.2,1),opacity .5s}
+.lb__track li.on img{transform:none;opacity:1}
+.lb__cap{padding:14px 20px calc(18px + env(safe-area-inset-bottom));text-align:center;font-size:15px;color:#d8cfc2}
+.lb__arrow{position:absolute;top:50%;width:52px;height:52px;margin-top:-26px;border-radius:50%;border:1px solid rgba(243,238,228,.3);background:rgba(15,11,8,.5);color:#f3eee4;font-size:20px;cursor:pointer}
+.lb__arrow--l{left:20px}.lb__arrow--r{right:20px}
+@media (hover:none){.lb__arrow{display:none}}
+
+.gal__item,.shop>.prod{scroll-snap-stop:always}
+
+.section-head--split>.gal__nav{display:flex;flex-wrap:nowrap;align-items:center}
+.gal__arrow{flex:none}
 </style>
 <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
 <script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
@@ -320,6 +381,7 @@ footer.closing .closing__links { margin-top: clamp(64px, 8vw, 120px); }
         <div><h2 id="coffee-h">This week's coffee</h2><p>Every bag is roasted to order and carries its roast date. We do not sell coffee older than three weeks.</p></div>
         <p class="ship-line"><span class="dot"></span>Free delivery in Lithuania from €40 · EU from €60</p>
       </div>
+      <p class="shop-hint">Swipe to see all four coffees →</p>
       <div class="shop" data-shop>
         <article class="prod" data-prod="kenya">
           <figure class="prod__pic"><img src="assets/img/photo-f155398398-960.webp" srcset="assets/img/photo-f155398398-500.webp 500w, assets/img/photo-f155398398-960.webp 960w, assets/img/photo-f155398398.webp 960w" sizes="(max-width: 639px) 100vw, (max-width: 1100px) 50vw, 25vw" width="960" height="1280" alt="Roasted beans of Kenya Gatomboya AA" loading="lazy" decoding="async"><span class="prod__tag">Filter</span><span class="prod__roast" title="Roast level 2 of 5" aria-label="Roast level 2 of 5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span><p class="prod__notes-over">Bright and juicy, like blackcurrant cordial. The coffee we are proudest of this year.</p></figure>
@@ -564,6 +626,21 @@ footer.closing .closing__links { margin-top: clamp(64px, 8vw, 120px); }
   </section>
 
   <!-- wholesale -->
+
+  <section class="section" id="inside" aria-labelledby="inside-h">
+    <div class="wrap">
+      <div class="section-head section-head--split">
+        <div><h2 id="inside-h">A morning at Takas</h2><p>Swipe through the bar and the roastery. Tap a photo to see it full screen.</p></div>
+        <div class="gal__nav"><span class="gal__count" data-gal-count>01 / 07</span><button type="button" class="gal__arrow" data-gal-prev aria-label="Previous photo">←</button><button type="button" class="gal__arrow" data-gal-next aria-label="Next photo">→</button></div>
+      </div>
+    </div>
+    <div class="gal" data-gal>
+      <ul class="gal__track" data-gal-track>
+        <li class="gal__item"><button type="button" class="gal__btn" data-gal-open="0" aria-label="Open photo 1: Tamping a double shot before service"><img src="assets/img/photo-m187311853-1200.webp" srcset="assets/img/photo-m187311853-1200.webp 1200w" sizes="(max-width: 639px) 82vw, 660px" width="1200" height="800" alt="Tamping a double shot before service" decoding="async"></button><p class="gal__cap"><span>01</span>Tamping a double shot before service</p></li><li class="gal__item gal__item--p"><button type="button" class="gal__btn" data-gal-open="1" aria-label="Open photo 2: Steaming oat milk for a flat white"><img src="assets/img/photo-m201752739-960.webp" srcset="assets/img/photo-m201752739-500.webp 500w, assets/img/photo-m201752739-960.webp 960w, assets/img/photo-m201752739.webp 1280w" sizes="(max-width: 639px) 60vw, 400px" width="1280" height="1910" alt="Steaming oat milk for a flat white" decoding="async"></button><p class="gal__cap"><span>02</span>Steaming oat milk for a flat white</p></li><li class="gal__item"><button type="button" class="gal__btn" data-gal-open="2" aria-label="Open photo 3: The first espresso of the day, 7:58"><img src="assets/img/photo-m28989985-1200.webp" srcset="assets/img/photo-m28989985-1200.webp 1200w" sizes="(max-width: 639px) 82vw, 660px" width="1200" height="857" alt="The first espresso of the day, 7:58" decoding="async"></button><p class="gal__cap"><span>03</span>The first espresso of the day, 7:58</p></li><li class="gal__item gal__item--p"><button type="button" class="gal__btn" data-gal-open="3" aria-label="Open photo 4: Pouring a cortado on the old oak bar"><img src="assets/img/photo-m61714648-960.webp" srcset="assets/img/photo-m61714648-500.webp 500w, assets/img/photo-m61714648-960.webp 960w" sizes="(max-width: 639px) 60vw, 400px" width="960" height="1433" alt="Pouring a cortado on the old oak bar" decoding="async"></button><p class="gal__cap"><span>04</span>Pouring a cortado on the old oak bar</p></li><li class="gal__item"><button type="button" class="gal__btn" data-gal-open="4" aria-label="Open photo 5: Latte art, the way Ieva teaches it"><img src="assets/img/photo-c141-960.webp" srcset="assets/img/photo-c141-500.webp 500w, assets/img/photo-c141-960.webp 960w, assets/img/photo-c141.webp 1280w" sizes="(max-width: 639px) 82vw, 660px" width="1280" height="853" alt="Latte art, the way Ieva teaches it" decoding="async"></button><p class="gal__cap"><span>05</span>Latte art, the way Ieva teaches it</p></li><li class="gal__item"><button type="button" class="gal__btn" data-gal-open="5" aria-label="Open photo 6: Thursday's batch dropping into the cooling tray"><img src="assets/img/photo-m147143943-960.webp" srcset="assets/img/photo-m147143943-500.webp 500w, assets/img/photo-m147143943-960.webp 960w, assets/img/photo-m147143943.webp 1280w" sizes="(max-width: 639px) 82vw, 660px" width="1280" height="853" alt="Thursday's batch dropping into the cooling tray" decoding="async"></button><p class="gal__cap"><span>06</span>Thursday's batch dropping into the cooling tray</p></li><li class="gal__item"><button type="button" class="gal__btn" data-gal-open="6" aria-label="Open photo 7: Sorting the green coffee by hand"><img src="assets/img/photo-m62054123-960.webp" srcset="assets/img/photo-m62054123-500.webp 500w, assets/img/photo-m62054123-960.webp 960w, assets/img/photo-m62054123.webp 1280w" sizes="(max-width: 639px) 82vw, 660px" width="1280" height="853" alt="Sorting the green coffee by hand" decoding="async"></button><p class="gal__cap"><span>07</span>Sorting the green coffee by hand</p></li>
+      </ul>
+      <div class="wrap"><div class="gal__bar"><i data-gal-bar></i></div></div>
+    </div>
+  </section>
   <section class="section" id="wholesale" aria-labelledby="ws-h">
     <div class="wrap grid grid--top">
       <div class="span-5">
@@ -634,6 +711,14 @@ footer.closing .closing__links { margin-top: clamp(64px, 8vw, 120px); }
       <p class="t-small muted" data-checkout-note>Card, Apple Pay, Google Pay and bank link. Secure checkout.</p>
     </div>
   </aside>
+</div>
+
+<div class="lb" data-lb hidden role="dialog" aria-modal="true" aria-label="Photos">
+  <div class="lb__top"><span data-lb-count>1 / 7</span><button type="button" class="lb__x" data-lb-close aria-label="Close">×</button></div>
+  <ul class="lb__track" data-lb-track></ul>
+  <p class="lb__cap" data-lb-cap></p>
+  <button type="button" class="lb__arrow lb__arrow--l" data-lb-prev aria-label="Previous">←</button>
+  <button type="button" class="lb__arrow lb__arrow--r" data-lb-next aria-label="Next">→</button>
 </div>
 <div class="toast" data-toast role="status" aria-live="polite"></div>
 
